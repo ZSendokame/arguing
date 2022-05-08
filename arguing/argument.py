@@ -8,11 +8,17 @@ def setArgument(argument, argumentType=None):
         argumentDict[argument] = argumentType
 
     else:
-        argumentDict[argument] = str()
+        argumentDict[argument] = str
 
 def getArgument(argument):
-    argumentValue = sys.argv[sys.argv.index(argument) + 1]
-    argumentValue = argumentDict[argument](argumentValue)
+    if not argument == sys.argv[-1]:
+        argumentValue = sys.argv[sys.argv.index(argument) + 1]
+
+    else:
+        argumentValue = None
+
+    if argument in argumentDict:
+        argumentValue = argumentDict[argument](argumentValue)
 
     return argumentValue
 
