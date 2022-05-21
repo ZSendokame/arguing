@@ -4,9 +4,8 @@ Arguing doesn't needs you defining every argument that you wan't, just get it.
 
 # Installation
 You can use PIP or GIT to install the library, both are the same version.
-```
+```sh
 pip install arguing
-git clone https://github.com/ZSendokame/arguing
 ```
 
 # Use
