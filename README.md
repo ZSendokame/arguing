@@ -14,12 +14,12 @@ After installing the library, here's a brief tutorial.
 ```py
 import arguing
 
-arguing.setArgument('--argument') # To specify a type for the argument value, use the parameter "argumentType", like
-arguing.setArgument('--argument', argumentType=int) # For example, Converts to int.
+arguing.set('--argument') # To specify a type for the argument value, use the parameter "argumentType", like
+arguing.set('--argument', argumentType=int) # For example, Converts to int.
 
-# arguing.setArgument() is for mandatory arguments, in case you don't need a mandatory argument you can just get it with
-arguing.getArgument('--argument') # Work with mandatory and not mandatory arguments.
+# arguing.set() is for mandatory arguments, in case you don't need a mandatory argument you can just get it with
+arguing.get('--argument') # Work with mandatory and not mandatory arguments.
 
 # In case you wan't to check if the user passed an specific argument you can use
-arguing.checkArgument('--argument') # Return True or False.
+arguing.check('--argument') # Return True or False.
 ```

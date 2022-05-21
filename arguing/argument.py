@@ -1,17 +1,17 @@
 import sys
 
-sys.argv = sys.argv[1:]
+argv = sys.argv
 argumentDict = {}
 
-def setArgument(argument, argumentType=None):
+def set(argument, argumentType=None):
     if not argumentType == None:
         argumentDict[argument] = argumentType
 
     else:
         argumentDict[argument] = str
 
-def getArgument(argument):
-    if not argument == sys.argv[-1]:
+def get(argument):
+    if argument in argv and not argument == sys.argv[-1]:
         argumentValue = sys.argv[sys.argv.index(argument) + 1]
 
     else:
@@ -22,5 +22,5 @@ def getArgument(argument):
 
     return argumentValue
 
-def checkArgument(argument):
+def check(argument):
     return argument in sys.argv
