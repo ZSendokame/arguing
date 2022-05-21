@@ -3,12 +3,8 @@ import sys
 argv = sys.argv
 argumentDict = {}
 
-def set(argument, argumentType=None):
-    if not argumentType == None:
-        argumentDict[argument] = argumentType
-
-    else:
-        argumentDict[argument] = str
+def set(argument, argumentType=str):
+    argumentDict[argument] = argumentType
 
 def get(argument):
     if argument in argv and not argument == sys.argv[-1]:
