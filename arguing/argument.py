@@ -3,38 +3,27 @@ import sys
 argv = sys.argv
 argumentDict = {}
 
-def set(argument, argumentType=str, help=None):
+def set(argument, argumentType=str, default=None):
     argumentDict[argument] = {
-        'type': argumentType,
-        'help': help
+        'default': default,
+        'type': argumentType
     }
 
-    if not argument in argv:
-        raise Exception(f'Mandatory argument "{argument}" cannot be founded.\n{argument}: {help}')
+    if default == None and not argument in argv:
+        raise Exception(f'{argument} cannot be founded.')
 
 def get(argument):
-    if argument in argv and not argument == argv[-1]:
-        argumentValue = argv[argv.index(argument) + 1]
+    if argument in argv and not argument == sys.argv[-1]:
+        argumentValue = sys.argv[sys.argv.index(argument) + 1]
 
     else:
-        argumentValue = None
+        if argument in argumentDict:
+            argumentValue = argumentDict[argument]['default']
 
     if argument in argumentDict:
-        argumentValue = argumentDict[argument](argumentValue)
+        argumentValue = argumentDict[argument]['type'](argumentValue)
 
     return argumentValue
 
 def check(argument):
-    return argument in argv
-
-def help():
-    helpMessage = ''
-    helpMessage += f'USAGE: python {argv[0]} -h\n'
-
-    for argument in argumentDict:
-        helpMessage += f'{argument}: {argumentDict[argument]["help"]}'
-
-        if not argument == list(argumentDict)[-1]:
-            helpMessage += '\n'
-
-    return helpMessage
+    return argument in sys.argv
