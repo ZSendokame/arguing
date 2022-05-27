@@ -13,8 +13,7 @@ After installing the library, here's a brief tutorial.
 ```py
 import arguing
 
-arguing.set('--argument') # To specify the type for the argument value, use the parameter "argumentType", like:
-arguing.set('--argument', argumentType=int) # For example, Converts to int.
+arguing.set('--argument', argumentType=int, default='defaultValue')
 
 # arguing.set() is for mandatory arguments, in case you don't need a mandatory argument you can just get it with:
 arguing.get('--argument') # Work with mandatory and not mandatory arguments.
