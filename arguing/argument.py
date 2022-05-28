@@ -16,9 +16,11 @@ def get(argument):
     if argument in argv and not argument == sys.argv[-1]:
         argumentValue = sys.argv[sys.argv.index(argument) + 1]
 
-    else:
-        if argument in argumentDict:
+    elif argument in argumentDict:
             argumentValue = argumentDict[argument]['default']
+
+    else:
+        return None
 
     if argument in argumentDict:
         argumentValue = argumentDict[argument]['type'](argumentValue)
