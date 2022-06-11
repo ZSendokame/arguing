@@ -19,7 +19,7 @@ arguing.set('--argument', argumentType=str, default='defaultValue')
 # argumentType is for the type of variable that return on get()
 # default sets a default value in case the user don't pass the argument.
 
-arguing.get('--argument') # Work with mandatory and not mandatory arguments.
+arguing.get('--argument') # Work with mandatory and non-mandatory arguments.
 # arguing.get() returns the parameters value
 # It will return it converted to the selected type on arguing.set() if used
 # If arguing.get() can't get the parameters value, it will return the default on arguing.set() or None.
