@@ -9,15 +9,13 @@ def set(argument, argumentType=str, default=None):
         'type': argumentType
     }
 
-    if default == None and not argument in argv:
-        raise Exception(f'{argument} cannot be founded.')
-
 def get(argument):
-    if argument in argv and not argument == sys.argv[-1]:
-        argumentValue = sys.argv[sys.argv.index(argument) + 1]
+    if argument in argv and argv.index(argument) < len(argv):
+        valueIndex = argv.index(argument) + 1
+        argumentValue = argv[valueIndex]
 
     elif argument in argumentDict:
-            argumentValue = argumentDict[argument]['default']
+        argumentValue = argumentDict[argument]['default']
 
     else:
         return None
@@ -28,4 +26,4 @@ def get(argument):
     return argumentValue
 
 def check(argument):
-    return argument in sys.argv
+    return argument in argv
