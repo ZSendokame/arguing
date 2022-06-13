@@ -4,7 +4,7 @@ readme = open('README.md')
 
 setup(
     name='arguing',
-    version='1.0.8',
+    version='1.0.9',
     author='Sendokame',
     url='https://github.com/ZSendokame/arguing',
     description='Create nice CLIs without bloating your apps.',
