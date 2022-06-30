@@ -13,7 +13,7 @@ After installing the library, here's a brief tutorial.
 ```py
 import arguing
 
-arguing.set('--argument', argumentType=str, default='defaultValue')
+arguing.set('--argument', argument_type=str, default='default_value', help_message='Help.')
 # arguing.set() is for mandatory arguments ( You can use it for non-mandatory arguments, setting it's default value. ).
 # The first parameter is the argument
 # argumentType is for the type of variable that return on get()
