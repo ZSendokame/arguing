@@ -1,1 +1,1 @@
-from .argument import(get, set, check, documentation, argv)
+from .argument import(get, set, check, documentation, argv, argument_dict)

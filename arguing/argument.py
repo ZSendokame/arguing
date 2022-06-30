@@ -39,6 +39,6 @@ def documentation():
         argument_help = argument_dict[argument]['help']
 
         documentation_message += f'\t{argument}: {argument_help} ' \
-            f'(Type: {argument_type}, Default: {argument_default})'
+            f'(Type: {argument_type}, Default: {argument_default})\n'
 
     return documentation_message
