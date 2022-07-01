@@ -3,12 +3,14 @@ import sys
 argv = sys.argv
 argument_dict = {}
 
+
 def set(argument, argument_type=str, default=None, help_message=None):
     argument_dict[argument] = {
         'default': default,
         'type': argument_type,
         'help': help_message
     }
+
 
 def get(argument):
     if argument in argv and argv.index(argument) < len(argv):
@@ -26,8 +28,10 @@ def get(argument):
 
     return argument_value
 
+
 def check(argument):
     return argument in argv
+
 
 def documentation():
     documentation_message = f'{argv[0]} usage:\n\n'
