@@ -5,12 +5,19 @@ argv = sys.argv
 argument_dict = {}
 
 
-def set(argument, argument_type=str, default=None, help_message=None):
+def set(argument, argument_type=str, default=None, help_message=None,
+        mandatory=False):
+
     argument_dict[argument] = {
         'default': default,
         'type': argument_type,
         'help': help_message
     }
+
+    if mandatory and not check(argument):
+        exit(documentation())
+
+    return get(argument)
 
 
 def get(argument):
@@ -34,6 +41,17 @@ def check(argument):
     return argument in argv
 
 
+def function(target):
+    argument_value = {}
+    function_arguments = str(inspect.signature(target))[1:-1].split(', ')
+
+    for argument in function_arguments:
+        argument = argument.split('=')
+        argument_value[argument[0]] = get(argument[0])
+
+    target(**argument_value)
+
+
 def documentation():
     documentation_message = f'{argv[0]} usage:\n\n'
     documentation_message += 'Parameters:\n'
@@ -47,14 +65,3 @@ def documentation():
             f'(Type: {argument_type}, Default: {argument_default})\n'
 
     return documentation_message
-
-
-def function(target):
-    argument_value = {}
-    function_arguments = str(inspect.signature(target))[1:-1].split(', ')
-
-    for argument in function_arguments:
-        argument = argument.split('=')
-        argument_value[argument[0]] = get(argument[0])
-
-    target(**argument_value)
