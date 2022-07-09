@@ -13,11 +13,16 @@ After installing the library, here's a brief tutorial.
 ```py
 import arguing
 
-arguing.set('--argument', argument_type=str, default='default_value', help_message='Help.')
-# arguing.set() is for mandatory arguments ( You can use it for non-mandatory arguments, setting it's default value. ).
-# The first parameter is the argument
-# argumentType is for the type of variable that return on get()
+argument = arguing.set(
+    '--argument',
+    argument_type=str,
+    default='default_value',
+    help_message='Help.'
+)
+# The first parameter is the argument.
+# argument_type is for the type of variable that return on get().
 # default sets a default value in case the user don't pass the argument.
+# Also, you can define a variable to the function and it will return the argument value.
 
 arguing.get('--argument') # Work with mandatory and non-mandatory arguments.
 # arguing.get() returns the parameters value
