@@ -2,6 +2,9 @@
 Arguing is a little library who lets you create a nice CLI without bloating your app.<br>
 Arguing doesn't needs you defining every argument that you wan't, just get it.
 
+[![PyPi Version](https://img.shields.io/pypi/v/arguing.svg)](https://pypi.org/project/arguing)
+[![PyPi Downloads](https://img.shields.io/pypi/dm/arguing)](https://pypistats.org/packages/arguing)
+
 # Installation
 You can use PIP to install the library.
 ```sh
