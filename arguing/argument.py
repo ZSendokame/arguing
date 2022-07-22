@@ -21,7 +21,7 @@ def set(argument, argument_type=str, default=None, help_message=None,
 
 
 def get(argument):
-    if argument in argv and argv.index(argument) < len(argv):
+    if argument in argv and argv.index(argument) < len(argv) - 1:
         value_index = argv.index(argument) + 1
         argument_value = argv[value_index]
 
