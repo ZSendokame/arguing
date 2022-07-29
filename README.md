@@ -34,18 +34,4 @@ arguing.get('--argument') # Work with mandatory and non-mandatory arguments.
 
 # In case you wan't to check if the user passed an specific argument you can use:
 arguing.check('--argument') # Checks if argument is on ARGV, returns Bool.
-
-# Function calling:
-def greet(name):
-    print(f'Hello {name}.')
-
-
-if __name__ == '__main__':
-    arguing.function(target=greet)
-
-# This will call the function "greet" with it's parameters.
-# Terminal input: python test.py name "Antitesista"
-# Output: Hello Antitesista.
-
-# You can combine arguing.set() to add default values.
 ```
