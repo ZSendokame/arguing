@@ -1,5 +1,4 @@
 import sys
-import inspect
 
 argv = sys.argv
 argument_dict = {}
@@ -39,17 +38,6 @@ def get(argument):
 
 def check(argument):
     return argument in argv
-
-
-def function(target):
-    argument_value = {}
-    function_arguments = str(inspect.signature(target))[1:-1].split(', ')
-
-    for argument in function_arguments:
-        argument = argument.split('=')
-        argument_value[argument[0]] = get(argument[0])
-
-    target(**argument_value)
 
 
 def documentation():
