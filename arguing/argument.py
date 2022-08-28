@@ -14,13 +14,13 @@ def set(argument, argument_type=str, default=None, help_message=None,
     }
 
     if mandatory and not check(argument):
-        exit(documentation())
+        exit(f'- Cannot find "{argument}".')
 
     return get(argument)
 
 
 def get(argument):
-    if argument in argv and argv.index(argument) < len(argv) - 1:
+    if argument in argv and argument != argv[-1]:
         value_index = argv.index(argument) + 1
         argument_value = argv[value_index]
 
@@ -38,18 +38,3 @@ def get(argument):
 
 def check(argument):
     return argument in argv
-
-
-def documentation():
-    documentation_message = f'{argv[0]} usage:\n\n'
-    documentation_message += 'Parameters:\n'
-
-    for argument in argument_dict:
-        argument_type = argument_dict[argument]['type'].__name__
-        argument_default = argument_dict[argument]['default']
-        argument_help = argument_dict[argument]['help']
-
-        documentation_message += f'\t{argument}: {argument_help} ' \
-            f'(Type: {argument_type}, Default: {argument_default})\n'
-
-    return documentation_message
