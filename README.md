@@ -35,3 +35,7 @@ arguing.get('--argument') # Work with mandatory and non-mandatory arguments.
 # In case you wan't to check if the user passed an specific argument you can use:
 arguing.check('--argument') # Checks if argument is on ARGV, returns Bool.
 ```
+
+# What's new
+- \[Fixed bug\] When adding flag without a value, raises `IndexError`. Should return it's default value or None.
+- \[Removed\] Documentation function.
