@@ -14,7 +14,7 @@ def set(argument, argument_type=str, default=None, help_message=None,
     }
 
     if mandatory and not check(argument):
-        exit(f'- Cannot find "{argument}".')
+        exit(f'{argument}: {help_message} ({argument_type.__name__})')
 
     return get(argument)
 
@@ -37,4 +37,5 @@ def get(argument):
 
 
 def check(argument):
-    return argument in argv
+    return (argument in argv
+            and argv.index(argument) + 1 < len(argv))
