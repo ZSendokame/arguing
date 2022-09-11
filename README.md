@@ -17,25 +17,22 @@ After installing the library, here's a brief tutorial.
 import arguing
 
 argument = arguing.set(
-    '--argument',
-    argument_type=str,
-    default='default_value',
-    help_message='Help.'
+    '--argument',  # Argument name.
+    argument_type=str,  # Type of the argument, by default string.
+    default='default_value',  # If the user don't pass the flag or it doesn't have a value, it will be automatically setted to this. 
+    help_message='Help.' # Help message
 )
-# The first parameter is the argument.
-# argument_type is for the type of variable that return on get().
-# default sets a default value in case the user don't pass the argument.
 # Also, you can define a variable to the function and it will return the argument value.
 
-arguing.get('--argument') # Work with mandatory and non-mandatory arguments.
+arguing.get('--argument')
 # arguing.get() returns the parameters value
 # It will return it converted to the selected type on arguing.set() if used
 # If arguing.get() can't get the parameters value, it will return the default on arguing.set() or None.
 
 # In case you wan't to check if the user passed an specific argument you can use:
-arguing.check('--argument') # Checks if argument is on ARGV, returns Bool.
+arguing.check('--argument') # Checks if argument is on ARGV and if it has a value, returns Bool.
 ```
 
 # What's new
+- \[Fixed bug\] `.check()` would return `True` even if the flag does not have any value.
 - \[Fixed bug\] When adding flag without a value, raises `IndexError`. Should return it's default value or None.
-- \[Removed\] Documentation function.
