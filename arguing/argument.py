@@ -14,7 +14,7 @@ def set(argument, argument_type=str, default=None, help_message=None,
     }
 
     if mandatory and not check(argument):
-        exit(f'{argument}: {help_message} ({argument_type.__name__})')
+        exit(f'{argument}: {help_message} ({argument_type.__name__}).')
 
     return get(argument)
 
