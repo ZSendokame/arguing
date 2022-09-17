@@ -1,6 +1,6 @@
 # Arguing
-Arguing is a little library who lets you create a nice CLI without bloating your app.<br>
-Get what you want with the name you want!
+Arguing is a Lightweight and simple **Argument parsing** library that gives you all the control, no third party libraries.
+
 
 [![PyPi Version](https://img.shields.io/pypi/v/arguing.svg?logo=pypi&logoColor=yellow)](https://pypi.org/project/arguing)
 [![PyPi Downloads](https://img.shields.io/pypi/dm/arguing?logo=pypi&logoColor=yellow)](https://pypistats.org/packages/arguing)
@@ -20,7 +20,8 @@ argument = arguing.set(
     '--argument',  # Argument name.
     argument_type=str,  # Type of the argument, by default string.
     default='default_value',  # If the user don't pass the flag or it doesn't have a value, it will be automatically setted to this. 
-    help_message='Help.' # Help message
+    help_message='Help.'  # Help message
+    # You can also add Mandatory arguments witht the "mandatory" parameter (Bool)!
 )
 # Also, you can define a variable to the function and it will return the argument value.
 
@@ -31,6 +32,11 @@ arguing.get('--argument')
 
 # In case you wan't to check if the user passed an specific argument you can use:
 arguing.check('--argument') # Checks if argument is on ARGV and if it has a value, returns Bool.
+
+
+print(arguing.get('--argument'))
+print(argument)
+# Both are valid
 ```
 
 # What's new
