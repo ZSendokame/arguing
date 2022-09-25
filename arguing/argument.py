@@ -4,17 +4,15 @@ argv = sys.argv
 argument_dict = {}
 
 
-def set(argument, argument_type=str, default=None, help_message=None,
-        mandatory=False):
-
+def set(argument, type=str, default=None, mandatory=False, help=None):
     argument_dict[argument] = {
         'default': default,
-        'type': argument_type,
-        'help': help_message
+        'type': type,
+        'help': help
     }
 
     if mandatory and not check(argument):
-        exit(f'{argument}: {help_message} ({argument_type.__name__}).')
+        exit(f'{argument}: {help} ({type.__name__}).')
 
     return get(argument)
 
