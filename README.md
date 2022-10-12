@@ -18,9 +18,9 @@ import arguing
 
 argument = arguing.set(
     '--argument',  # Argument name.
-    argument_type=str,  # Type of the argument, by default string.
+    type=str,  # Type of the argument, by default string.
     default='default_value',  # If the user don't pass the flag or it doesn't have a value, it will be automatically setted to this. 
-    help_message='Help.'  # Help message
+    help='Help.'  # Help message
     # You can also add Mandatory arguments witht the "mandatory" parameter (Bool)!
 )
 # Also, you can define a variable to the function and it will return the argument value.
