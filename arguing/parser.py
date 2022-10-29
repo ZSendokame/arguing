@@ -8,7 +8,8 @@ def set(argument, type=str, default=None, mandatory=False, help=None):
     argument_dict[argument] = {
         'default': default,
         'type': type,
-        'help': help
+        'help': help,
+        'mandatory': mandatory
     }
 
     if mandatory and not check(argument):
@@ -36,4 +37,4 @@ def get(argument):
 
 def check(argument):
     return (argument in argv
-            and argv.index(argument) + 1 < len(argv))
+            and len(argv) > argv.index(argument) + 1)
