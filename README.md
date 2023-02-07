@@ -40,5 +40,6 @@ print(argument)
 ```
 
 # What's new
+- \[Added\] Now, you can receive input from pipes with the `.pipe()` function.
 - \[Fixed bug\] `.check()` would return `True` even if the flag does not have any value.
 - \[Fixed bug\] When adding flag without a value, raises `IndexError`. Should return it's default value or None.
