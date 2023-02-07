@@ -1,10 +1,11 @@
 import sys
+from typing import Any
 
 argv = sys.argv
 argument_dict = {}
 
 
-def set(argument, type=str, default=None, mandatory=False, help=None):
+def set(argument: str, type: type = str, default: Any = None, mandatory: bool = False, help: str = None) -> Any:
     argument_dict[argument] = {
         'default': default,
         'type': type,
@@ -18,7 +19,7 @@ def set(argument, type=str, default=None, mandatory=False, help=None):
     return get(argument)
 
 
-def get(argument):
+def get(argument: str) -> Any:
     if argument in argv and argument != argv[-1]:
         value_index = argv.index(argument) + 1
         argument_value = argv[value_index]
@@ -35,6 +36,13 @@ def get(argument):
     return argument_value
 
 
-def check(argument):
+def check(argument: str) -> Any:
     return (argument in argv
             and len(argv) > argv.index(argument) + 1)
+
+
+def pipe() -> str:
+    if sys.stdin.isatty():
+        return None
+
+    return sys.stdin.readline().strip()
