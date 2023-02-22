@@ -5,15 +5,14 @@ argv = sys.argv
 argument_dict = {}
 
 
-def set(argument: str, type: type = str, default: Any = None, mandatory: bool = False, help: str = None) -> Any:
+def set(argument: str, type: type = str, default: Any = None, required: bool = False, help: str = None) -> Any:
     argument_dict[argument] = {
         'default': default,
         'type': type,
-        'help': help,
-        'mandatory': mandatory
+        'help': help
     }
 
-    if mandatory and not check(argument):
+    if required and not check(argument):
         exit(f'{argument}: {help} ({type.__name__}).')
 
     return get(argument)
