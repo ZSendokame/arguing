@@ -21,7 +21,7 @@ argument = arguing.set(
     type=str,  # Type of the argument, by default string.
     default='default_value',  # If the user don't pass the flag or it doesn't have a value, it will be automatically setted to this. 
     help='Help.'  # Help message
-    # You can also add Mandatory arguments witht the "mandatory" parameter (Bool)!
+    # You can also add required arguments witht the "required" parameter (Bool)!
 )
 # Also, you can define a variable to the function and it will return the argument value.
 
