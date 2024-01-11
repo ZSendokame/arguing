@@ -10,7 +10,7 @@ You can use PIP to install the library.
 ```sh
 pip install arguing
 
-# Or, from the latest version on GitHub
+# Or, the latest version on GitHub
 
 pip install git+https://github.com/ZSendokame/arguing.git
 
