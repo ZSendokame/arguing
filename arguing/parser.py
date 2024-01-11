@@ -1,47 +1,41 @@
 import sys
 from typing import Any
 
-argv = sys.argv
-argument_dict = {}
 
+class Arguing:
+    def __init__(self, help: str = '') -> None:
+        self.help = help
+        self.arguments = {}
+        self.argv = sys.argv
 
-def set(argument: str, type: type = str, default: Any = None, required: bool = False, help: str = None) -> Any:
-    argument_dict[argument] = {
-        'default': default,
-        'type': type,
-        'help': help
-    }
+    def set(self, name: str, flag: bool = False, type: type = str, default: Any = None, required: bool = False) -> Any:
+        self.arguments[name] = {
+            'is_flag': flag,
+            'default': default,
+            'type': type
+        }
 
-    if required and not check(argument):
-        exit(f'{argument}: {help} ({type.__name__}).')
+        if not flag and (required or (name not in self.argv)):
+            exit(self.help)
 
-    return get(argument)
+        return self.get(name)
 
+    def get(self, name: str) -> Any:
+        position = -1 if name not in self.argv else self.argv.index(name)
 
-def get(argument: str) -> Any:
-    if argument in argv and argument != argv[-1]:
-        value_index = argv.index(argument) + 1
-        argument_value = argv[value_index]
+        if self.arguments[name]['is_flag']:
+            return bool(position)
 
-    elif argument in argument_dict:
-        argument_value = argument_dict[argument]['default']
+        elif position != -1 and not self.next(position).startswith('-'):
+            return self.arguments[name].get('type', str)(self.next(position))
 
-    else:
-        return None
+        return self.arguments[name]['default']
 
-    if argument in argument_dict:
-        argument_value = argument_dict[argument]['type'](argument_value)
+    def next(self, pos: int = 0) -> str:
+        return None if len(self.argv) < pos + 1 else self.argv[pos + 1]
 
-    return argument_value
+    def pipe() -> str:
+        if sys.stdin.isatty():
+            return None
 
-
-def check(argument: str) -> Any:
-    return (argument in argv
-            and len(argv) > argv.index(argument) + 1)
-
-
-def pipe() -> str:
-    if sys.stdin.isatty():
-        return None
-
-    return sys.stdin.readline().strip()
+        return sys.stdin.readline().strip()
