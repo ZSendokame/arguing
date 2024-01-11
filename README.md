@@ -9,6 +9,11 @@ Arguing is a Lightweight and simple **Argument parsing** library that gives you 
 You can use PIP to install the library.
 ```sh
 pip install arguing
+
+# Or, from the latest version on GitHub
+
+pip install git+https://github.com/ZSendokame/arguing.git
+
 ```
 
 # Use
