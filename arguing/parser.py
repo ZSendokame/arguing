@@ -15,18 +15,18 @@ class Arguing:
             'type': type
         }
 
-        if not flag and (required or (name not in self.argv)):
+        if not flag and required and name not in self.argv:
             exit(self.help)
 
         return self.get(name)
 
     def get(self, name: str) -> Any:
-        position = -1 if name not in self.argv else self.argv.index(name)
+        position = 0 if name not in self.argv else self.argv.index(name)
 
         if self.arguments[name]['is_flag']:
             return bool(position)
 
-        elif position != -1 and not self.next(position).startswith('-'):
+        elif position != 0 and not self.next(position).startswith('-'):
             return self.arguments[name].get('type', str)(self.next(position))
 
         return self.arguments[name]['default']
