@@ -1,6 +1,6 @@
 # Arguing
 Arguing is a Lightweight and simple **Argument parsing** library that gives you all the control, no third party libraries.<br>
-***Not uploading to PyPi, for now***
+***Not uploading to PyPi, for now, and also not adding features, arguing is complete for me, only bugfixes.***
 
 [![PyPi Version](https://img.shields.io/pypi/v/arguing.svg?logo=pypi&logoColor=yellow)](https://pypi.org/project/arguing)
 [![PyPi Downloads](https://img.shields.io/pypi/dm/arguing?logo=pypi&logoColor=yellow)](https://pypistats.org/packages/arguing)
