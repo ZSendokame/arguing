@@ -21,12 +21,12 @@ class Arguing:
         return self.get(name)
 
     def get(self, name: str) -> Any:
-        position = 0 if name not in self.argv else self.argv.index(name)
+        position = -1 if name not in self.argv else self.argv.index(name)
 
         if self.arguments[name]['is_flag']:
-            return bool(position)
+            return position != -1
 
-        elif position != 0 and not self.next(position).startswith('-'):
+        elif position != -1 and not self.next(position).startswith('-'):
             return self.arguments[name].get('type', str)(self.next(position))
 
         return self.arguments[name]['default']
