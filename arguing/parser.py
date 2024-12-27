@@ -34,8 +34,8 @@ class Arguing:
     def next(self, pos: int = 0) -> str:
         return None if len(self.argv) < pos + 1 else self.argv[pos + 1]
 
-    def pipe() -> str:
+    def pipe(self) -> str:
         if sys.stdin.isatty():
             return None
 
-        return sys.stdin.readline().strip()
+        return (''.join(sys.stdin.readlines())).strip()
